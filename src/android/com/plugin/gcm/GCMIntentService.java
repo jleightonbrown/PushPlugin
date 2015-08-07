@@ -15,6 +15,8 @@ import android.util.Log;
 
 import com.google.android.gcm.GCMBaseIntentService;
 
+import com.resultsathand.OSAE2013.R; // JLB 07-09-15
+
 @SuppressLint("NewApi")
 public class GCMIntentService extends GCMBaseIntentService {
 
@@ -101,7 +103,7 @@ public class GCMIntentService extends GCMBaseIntentService {
 		NotificationCompat.Builder mBuilder =
 			new NotificationCompat.Builder(context)
 				.setDefaults(defaults)
-				.setSmallIcon(context.getApplicationInfo().icon)
+				.setSmallIcon((android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) ? R.drawable.notification : context.getApplicationInfo().icon) // JLB 07-09-15
 				.setWhen(System.currentTimeMillis())
 				.setContentTitle(extras.getString("title"))
 				.setTicker(extras.getString("title"))

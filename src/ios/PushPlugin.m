@@ -254,7 +254,12 @@
     self.callbackId = command.callbackId;
 
     NSMutableDictionary* options = [command.arguments objectAtIndex:0];
-    int badge = [[options objectForKey:@"badge"] intValue] ?: 0;
+    // JLB 08-07-15 Change this to not throw an exception as JavaScript can't catch them and it just kills the app.
+    int badge = 0;
+    if([NSNull null] != [options objectForKey:@"badge"]) {
+        badge = [[options objectForKey:@"badge"] intValue] ?: 0;
+    }
+
 
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:badge];
 

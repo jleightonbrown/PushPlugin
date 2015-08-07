@@ -821,3 +821,10 @@ Huge thanks to Mark Nutter whose [GCM-Cordova plugin](https://github.com/marknut
 Likewise, the iOS side was inspired by Olivier Louvignes' [Cordova PushNotification Plugin](https://github.com/phonegap/phonegap-plugins/tree/master/iOS/PushNotification) (Copyright (c) 2012 Olivier Louvignes) for iOS.
 
 Props to [Tobias Hößl](https://github.com/CatoTH), who provided the code to surface the full JSON object up to the JS layer.
+
+
+##Changes JLB Fork
+
+* To support both Android 4 and Android 5 functionality, I propose naming the image "notification" within your icons area for the monochrome PNG with transparency.
+* Default to displaying the app name in the new Lollipop Android 5 notifications that show both title and message.
+* Change the iOS source to prevent an exception if the badge number is inadvertantly missing.  If you try to badge but there is no badge, this will set it to zero instead.
